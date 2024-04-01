@@ -63,11 +63,13 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
 
     if(type === 'Create') {
       try {
+        console.log(userId,"userid");
         const newEvent = await createEvent({
           event: { ...values, imageUrl: uploadedImageUrl },
           userId,
           path: '/profile'
         })
+        console.log("event sent", newEvent);
 
         if(newEvent) {
           form.reset();
